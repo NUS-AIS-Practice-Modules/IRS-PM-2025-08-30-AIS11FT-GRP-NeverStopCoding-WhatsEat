@@ -1,32 +1,12 @@
-### [ Practice Module ] Project Submission Template: Github Repository & Zip File
-
-**[ Naming Convention ]** IRS-PM-2025-08-30-IS02PT-GRP-StopCoding-BrainBag
-
----
-
-### <<<<<<<<<<<<<<<<<<<< Start of Template >>>>>>>>>>>>>>>>>>>>
-
----
-
 ## SECTION 1 : PROJECT TITLE
-## Singapore Housing & Deveoplment Board - BTO Recommender System
-
-<img src="SystemCode/clips/static/hdb-bto.png"
-     style="float: left; margin-right: 0px;" />
+WhatsEat – Multi-Agent Meal Discovery Assistant
 
 ---
 
 ## SECTION 2 : EXECUTIVE SUMMARY / PAPER ABSTRACT
-Singapore ranks amongst countries with the highest population density in the world. In a bid to have firm control over long term urban planning, the Singapore government came up with the “Built to Order” (abbreviated BTO) initiative back in 2001. These are new Housing Development Board (HDB) flats tightly controlled by their eligibility and quantity released every year. In more recent years, the modern BTO scheme in Singapore requires a waiting period of 3-4 years, and is generally targeted at young Singaporean couples looking to purchase their first property and set up a family. Nationality and income ceilings are some of the broad filters that determine one’s eligibility for the highly sought after projects. 
+WhatsEat brings together a LangGraph-powered reasoning backend and a React-based conversation interface to help users decide what to eat faster and with greater confidence. The system orchestrates specialised agents that gather context, reason about user intents, and assemble actionable meal suggestions. The result is a guided dialogue that feels natural while remaining grounded in curated culinary and dietary knowledge sources.
 
-
-Our team, comprising of 6 young Singaporeans, all hope to be property owners one day. Many of our peers opt for BTO flats due to their affordability, existence of financial aid from the government, as well as their resale value. However, there often exists a knowledge gap for these young couples during the decision making process and they end up making potentially regretful decisions. We would like to bridge this knowledge gap, and have hence chosen to base our project on creating a recommender system for BTO flats, utilizing the data from recent launches in Tampines, Eunos, Sengkang and Punggol. 
-
-
-Using the techniques imparted to us in lectures, our group first set out to build a sizeable knowledge base via conducting an interview and administering a survey. While building the system, we utilized tools such as Java to scrape real time data from HDB website and transform it into a database, CLIPS to synthesize the rule based reasoning process, and Python to integrate it into an easy to use UI for the everyday user. To add icing on the cake, we even hosted the system on a website so that the everyday user can access it through the click of a link.
-
-
-Our team had an amazing time working on this project, and hope to share our insights with everyone. Despite a focus on BTO flats, we would recommend it for everybody interested in understanding property market trends for residence or investment purposes. There truly are a wide array of factors behind the decision to invest in a property, and we only wish there was more time to work on the scope and scale of the project. 
+This parent repository acts as the umbrella for the full solution. It keeps the backend and frontend codebases aligned as Git submodules, captures system-wide documentation (such as the included architecture diagram), and provides a single entry point for deployment automation or release management. Teams can therefore clone one repository and immediately gain access to both halves of the stack, making collaboration across disciplines significantly smoother.
 
 ---
 
@@ -40,85 +20,72 @@ Our team had an amazing time working on this project, and hope to share our insi
 | Liu Jiajia   | e1553327@u.nus.edu | 80387717 | A0329000X  |
 | Yan Huaju    | e1553823@u.nus.edu | 89415266 | A0329496L  |
 
+---
+
 ## SECTION 4 : VIDEO OF SYSTEM MODELLING & USE CASE DEMO
+Embed a link to the latest walkthrough once it is available. A suggested placeholder is shown below—replace the URL and thumbnail with your final recording:
 
-[![Sudoku AI Solver](http://img.youtube.com/vi/-AiYLUjP6o8/0.jpg)](https://youtu.be/-AiYLUjP6o8 "Sudoku AI Solver")
-
-Note: It is not mandatory for every project member to appear in video presentation; Presentation by one project member is acceptable. 
-More reference video presentations [here](https://telescopeuser.wordpress.com/2018/03/31/master-of-technology-solution-know-how-video-index-2/ "video presentations")
+[![WhatsEat System Demo](http://img.youtube.com/vi/VIDEO_ID/0.jpg)](https://youtu.be/VIDEO_ID "WhatsEat System Demo")
 
 ---
 
 ## SECTION 5 : USER GUIDE
 
-`Refer to appendix <Installation & User Guide> in project report at Github Folder: ProjectReport`
+### Repository structure
+- `What2Eat-frontend-agent-chat-ui/` – React application that renders the chat-driven meal discovery experience.
+- `WhatsEat-backend-LangGraph-supervisor-py/` – LangGraph workflow coordinating the reasoning, retrieval, and action agents.
+- `system design_final.png` – High-level architecture diagram for quick reference during onboarding.
 
-### [ 1 ] To run the system using iss-vm
+### Cloning the project
+```bash
+git clone --recurse-submodules git@github.com:NUS-AIS-Practice-Modules/IRS-PM-2025-08-30-IS02PT-GRP-NeverStopCoding-WhatsEat.git
+# If you do not have SSH access, swap the URL for the HTTPS variant before cloning.
+```
+If you already cloned the repository without submodules, run:
+```bash
+git submodule update --init --recursive --remote
+```
 
-> download pre-built virtual machine from http://bit.ly/iss-vm
+### Frontend (React chat UI)
+1. Navigate to the submodule directory: `cd What2Eat-frontend-agent-chat-ui`.
+2. Follow the setup instructions in that repository's README (expected flow: install Node.js LTS, run `npm install`, then `npm run dev` or `npm start`).
+3. Configure environment variables (e.g., API base URLs) as described in the submodule documentation.
+4. Start the development server and ensure it can reach the backend endpoint.
 
-> start iss-vm
+### Backend (LangGraph orchestration)
+1. Navigate to `WhatsEat-backend-LangGraph-supervisor-py`.
+2. Create and activate a Python virtual environment (e.g., `python -m venv .venv && source .venv/bin/activate`).
+3. Install the dependencies listed in the backend README (typically `pip install -r requirements.txt`).
+4. Populate any required API keys, dataset paths, or tool credentials via environment variables or `.env` files.
+5. Launch the LangGraph supervisor service (commonly via `python main.py` or a similar entrypoint) and confirm that the REST or websocket interface is reachable by the frontend.
 
-> open terminal in iss-vm
+### Running the full stack locally
+1. Start the backend service and verify that the health endpoint responds.
+2. Start the frontend development server and point it to the backend URL (default `http://localhost:<backend-port>`).
+3. Open the UI in your browser, initiate a conversation, and monitor backend logs to validate agent behaviour.
+4. Use the architecture diagram (`system design_final.png`) as a reference for debugging message flow across agents.
 
-> $ git clone https://github.com/telescopeuser/Workshop-Project-Submission-Template.git
-
-> $ source activate iss-env-py2
-
-> (iss-env-py2) $ cd Workshop-Project-Submission-Template/SystemCode/clips
-
-> (iss-env-py2) $ python app.py
-
-> **Go to URL using web browser** http://0.0.0.0:5000 or http://127.0.0.1:5000
-
-### [ 2 ] To run the system in other/local machine:
-### Install additional necessary libraries. This application works in python 2 only.
-
-> $ sudo apt-get install python-clips clips build-essential libssl-dev libffi-dev python-dev python-pip
-
-> $ pip install pyclips flask flask-socketio eventlet simplejson pandas
+### Common maintenance tasks
+- **Sync submodules:** `git submodule update --remote --merge` keeps frontend and backend pinned to their latest main branches.
+- **Issue tracking:** Use the parent repository for cross-cutting issues; keep component-specific bugs within their respective submodule issue trackers.
+- **Releases:** Tag this repository once both submodules reach the desired release commit, ensuring reproducible builds.
 
 ---
+
 ## SECTION 6 : PROJECT REPORT / PAPER
-
-`Refer to project report at Github Folder: ProjectReport`
-
-**Recommended Sections for Project Report / Paper:**
-- Executive Summary / Paper Abstract
-- Sponsor Company Introduction (if applicable)
-- Business Problem Background
-- Market Research
-- Project Objectives & Success Measurements
-- Project Solution (To detail domain modelling & system design.)
-- Project Implementation (To detail system development & testing approach.)
-- Project Performance & Validation (To prove project objectives are met.)
-- Project Conclusions: Findings & Recommendation
-- Appendix of report: Project Proposal
-- Appendix of report: Mapped System Functionalities against knowledge, techniques and skills of modular courses: MR, RS, CGS
-- Appendix of report: Installation and User Guide
-- Appendix of report: 1-2 pages individual project report per project member, including: Individual reflection of project journey: (1) personal contribution to group project (2) what learnt is most useful for you (3) how you can apply the knowledge and skills in other situations or your workplaces
-- Appendix of report: List of Abbreviations (if applicable)
-- Appendix of report: References (if applicable)
+Store final documentation (project proposal, architecture write-up, testing evidence, etc.) inside a `ProjectReport/` directory in this repository. Link the primary PDF or paper here once published so reviewers can access it from the root README.
 
 ---
+
 ## SECTION 7 : MISCELLANEOUS
-
-`Refer to Github Folder: Miscellaneous`
-
-### HDB_BTO_SURVEY.xlsx
-* Results of survey
-* Insights derived, which were subsequently used in our system
-
----
-
-### <<<<<<<<<<<<<<<<<<<< End of Template >>>>>>>>>>>>>>>>>>>>
+- Maintain any supplementary assets (datasets, slide decks, experiment logs) inside a `Miscellaneous/` folder alongside clear sub-folders.
+- Use git-lfs or cloud storage links for large media files.
+- Record retrospective notes or onboarding checklists here to keep institutional knowledge discoverable by new contributors.
 
 ---
 
 **This [Machine Reasoning (MR)](https://www.iss.nus.edu.sg/executive-education/course/detail/machine-reasoning "Machine Reasoning") course is part of the Analytics and Intelligent Systems and Graduate Certificate in [Intelligent Reasoning Systems (IRS)](https://www.iss.nus.edu.sg/stackable-certificate-programmes/intelligent-systems "Intelligent Reasoning Systems") series offered by [NUS-ISS](https://www.iss.nus.edu.sg "Institute of Systems Science, National University of Singapore").**
 
 **Lecturer: [GU Zhan (Sam)](https://www.iss.nus.edu.sg/about-us/staff/detail/201/GU%20Zhan "GU Zhan (Sam)")**
-
-[![alt text](https://www.iss.nus.edu.sg/images/default-source/About-Us/7.6.1-teaching-staff/sam-website.tmb-.png "Let's check Sam' profile page")](https://www.iss.nus.edu.sg/about-us/staff/detail/201/GU%20Zhan)
 
 **zhan.gu@nus.edu.sg**
