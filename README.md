@@ -82,8 +82,8 @@ Video Link On YouTube: https://www.youtube.com/watch?v=kfHtMgUZ3Eo
 
 
 <p align="center">
-  <img src="assets/demo_card.gif" alt="demo_card" width="450">
-  <img src="assets/demo_map.gif" alt="demo_map" width="450">
+  <img src="assets/demo_card.gif" alt="demo_card" width="350">
+  <img src="assets/demo_map.gif" alt="demo_map" width="350">
 </p>
 
 <p align="center">
