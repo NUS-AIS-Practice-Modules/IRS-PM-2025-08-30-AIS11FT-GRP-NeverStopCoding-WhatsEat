@@ -1,6 +1,6 @@
 ### [ Practice Module ] PRACTICE MODULE BRIEFING for Certificate in Intelligent Reasoning Systems (IRS)
 
-**[ Naming Convention ]** IRS-PM-2025-08-30-IS02PT-GRP-NeverStopCoding-WhatsEat
+**[ Naming Convention ]** IRS-PM-2025-08-30-AIS11FT-GRP-NeverStopCoding-WhatsEat
 
 ## SECTION 1 : PROJECT TITLE
 ## WhatsEat - Multi-agent Powered Restaurant Recommendation Assistant
@@ -101,9 +101,10 @@ Amid a shift from static “nearby + rating” lists to context-aware personaliz
 
 `Refer to appendix <Installation & User Guide> in project report at Github Folder: ProjectReport`
 
-<p style="display: flex; gap: 10px; justify-content: center;">
-  <img src="assets/demo_card.gif" alt="demo_map" style="width:45%;" />
-  <img src="assets/demo_map.gif" alt="demo_card" style="width:45%;" />
+
+<p align="center">
+  <img src="assets/demo_card.gif" alt="demo_card" width="480">
+  <img src="assets/demo_map.gif" alt="demo_map" width="480">
 </p>
 
 <p align="center">
