@@ -82,6 +82,14 @@ Video Link (YouTube): *https://www.youtube.com/watch?v=kfHtMgUZ3Eo*
 
 `Refer to appendix <Installation & User Guide> in project report at Github Folder: ProjectReport`
 
+<p align="center">
+  <img src="assets/demo_current_location.gif" alt="demo_card" width="350">
+  <img src="assets/demo_specific_location.gif" alt="demo_map" width="350">
+</p>
+
+<p align="center">
+  <em>Recommend by Current Location (Left) & Specific location (Right) </em>
+</p>
 
 <p align="center">
   <img src="assets/demo_card.gif" alt="demo_card" width="350">
@@ -89,7 +97,7 @@ Video Link (YouTube): *https://www.youtube.com/watch?v=kfHtMgUZ3Eo*
 </p>
 
 <p align="center">
-  <em>Restaurants card display (Left) & Interactive Map (Right) </em>
+  <em>Restaurants Card Display (Left) & Interactive Map (Right) </em>
 </p>
 
 
