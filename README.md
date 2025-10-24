@@ -1,32 +1,83 @@
-### [ Practice Module ] Project Submission Template: Github Repository & Zip File
+### [ Practice Module ] PRACTICE MODULE BRIEFING for Certificate in Intelligent Reasoning Systems (IRS)
 
-**[ Naming Convention ]** IRS-PM-2025-08-30-IS02PT-GRP-StopCoding-BrainBag
-
----
-
-### <<<<<<<<<<<<<<<<<<<< Start of Template >>>>>>>>>>>>>>>>>>>>
-
----
+**[ Naming Convention ]** IRS-PM-2025-08-30-IS02PT-GRP-NeverStopCoding-WhatsEat
 
 ## SECTION 1 : PROJECT TITLE
-## Singapore Housing & Deveoplment Board - BTO Recommender System
+## WhatsEat - Multi-agent Powered Restaurant Recommendation Assistant
 
-<img src="SystemCode/clips/static/hdb-bto.png"
-     style="float: left; margin-right: 0px;" />
+An intelligent multi-agent system that delivers personalized restaurant recommendations through conversational AI
+
+### Tech-Stack
+
+<p align="left" style="display:flex; gap:20px; flex-wrap:wrap; align-items:center;">
+  <a href="https://reactjs.org/" target="_blank">
+    <img src="assets/icons/react.svg" alt="React" width="40" height="40">
+  </a>
+  <a href="https://www.typescriptlang.org/" target="_blank">
+    <img src="assets/icons/typescript.svg" alt="TypeScript" width="40" height="40">
+  </a>
+</p>
+
+<p align="left">
+  <em>Frontend </em>
+</p>
+
+<p align="left" style="display:flex;gap:20px;flex-wrap:wrap;align-items:center;">
+  <a href="https://openai.com/" target="_blank">
+    <img src="assets/icons/openai.svg" alt="OpenAI" width="40" height="40">
+  </a>
+  <a href="https://www.langgraph.com/" target="_blank">
+    <img src="assets/icons/langgraph.svg" alt="LangGraph" width="40" height="40">
+  </a>
+  <a href="https://www.langsmith.com/" target="_blank">
+    <img src="assets/icons/langsmith.svg" alt="LangSmith" width="40" height="40">
+  </a>
+  <a href="https://www.langchain.com/" target="_blank">
+    <img src="assets/icons/langchain.svg" alt="LangChain" width="40" height="40">
+  </a>
+  <a href="https://neo4j.com/" target="_blank">
+    <img src="assets/icons/neo4j.svg" alt="Neo4j" width="40" height="40">
+  </a>
+  <a href="https://pinecone.io/" target="_blank">
+    <img src="assets/icons/pinecone.svg" alt="Pinecone" width="40" height="40">
+  </a>
+  <a href="https://www.python.org/" target="_blank">
+    <img src="assets/icons/python.svg" alt="Python" width="40" height="40">
+  </a>
+  <a href="https://maps.google.com/" target="_blank">
+    <img src="assets/icons/map.svg" alt="Google Map" width="40" height="40">
+  </a>
+  <a href="https://www.youtube.com/" target="_blank">
+    <img src="assets/icons/youtube.svg" alt="YouTube" width="40" height="40">
+  </a>
+</p>
+
+<p align="left">
+  <em>Backend</em>
+</p>
+
+![home](assets/home.png)
 
 ---
 
 ## SECTION 2 : EXECUTIVE SUMMARY / PAPER ABSTRACT
-Singapore ranks amongst countries with the highest population density in the world. In a bid to have firm control over long term urban planning, the Singapore government came up with the “Built to Order” (abbreviated BTO) initiative back in 2001. These are new Housing Development Board (HDB) flats tightly controlled by their eligibility and quantity released every year. In more recent years, the modern BTO scheme in Singapore requires a waiting period of 3-4 years, and is generally targeted at young Singaporean couples looking to purchase their first property and set up a family. Nationality and income ceilings are some of the broad filters that determine one’s eligibility for the highly sought after projects. 
+
+Amid a shift from static “nearby + rating” lists to context-aware personalization, Whats'Eat presents an explainable, multi-agent restaurant recommendation system. Built on a Supervisor–Agents graph using *LangGraph*, the system concurrently orchestrates an Places Agent and a User Profile Agent (both idempotent) to gather geographic evidence and lightweight behavioral signals. A KG-based RAG Recommender Agent then fuses a *Neo4j* knowledge graph with *Pinecone* vector retrieval for candidate recall and multi-factor ranking, and a Summarizer Agent produces a UI-ready {cards, rationale} JSON payload. Engineering contributions include contract-first JSON flows, idempotent tool calls with retries, field-masked API usage, pagination-stable ingestion, and a React frontend for map/route and card rendering. Functional tests cover places, profile, RAG, and summarization paths; in real use cases the system improves preference fit and explanation clarity over non-retrieval conversational baselines. This work contributes: 
+
+- **A parallel-yet-controlled multi-agent orchestration pattern**
+- **An evidence that hybrid KG + vector retrieval is effective for local-services recommendations**
+- **A strict output contract with reproducible implementation details, providing a foundation for broader local-service scenarios.**
+
+​		
 
 
-Our team, comprising of 6 young Singaporeans, all hope to be property owners one day. Many of our peers opt for BTO flats due to their affordability, existence of financial aid from the government, as well as their resale value. However, there often exists a knowledge gap for these young couples during the decision making process and they end up making potentially regretful decisions. We would like to bridge this knowledge gap, and have hence chosen to base our project on creating a recommender system for BTO flats, utilizing the data from recent launches in Tampines, Eunos, Sengkang and Punggol. 
+<p align="center">
+  <img alt="demo1" src="assets/demo_langgraph.gif"> 
+</p>
 
-
-Using the techniques imparted to us in lectures, our group first set out to build a sizeable knowledge base via conducting an interview and administering a survey. While building the system, we utilized tools such as Java to scrape real time data from HDB website and transform it into a database, CLIPS to synthesize the rule based reasoning process, and Python to integrate it into an easy to use UI for the everyday user. To add icing on the cake, we even hosted the system on a website so that the everyday user can access it through the click of a link.
-
-
-Our team had an amazing time working on this project, and hope to share our insights with everyone. Despite a focus on BTO flats, we would recommend it for everybody interested in understanding property market trends for residence or investment purposes. There truly are a wide array of factors behind the decision to invest in a property, and we only wish there was more time to work on the scope and scale of the project. 
+<p align="center">
+  <em>LangGraph-Supervisor Multi-agent Monitoring</em>
+</p>
 
 ---
 
@@ -34,18 +85,15 @@ Our team had an amazing time working on this project, and hope to share our insi
 
 | Name         | Email              | Phone    | Student ID |
 | ------------ | ------------------ | -------- | ---------- |
-| Shang Jiakun | e1553372@u.nus.edu | 86696094 | A0329045E  |
 | Ke Liwen     | e1553817@u.nus.edu | 80840573 | A0329490X  |
-| Yu Guotao    | e1554269@u.nus.edu | 94458679 | A0329942U  |
+| Shang Jiakun | e1553372@u.nus.edu | 86696094 | A0329045E  |
 | Liu Jiajia   | e1553327@u.nus.edu | 80387717 | A0329000X  |
+| Yu Guotao    | e1554269@u.nus.edu | 94458679 | A0329942U  |
 | Yan Huaju    | e1553823@u.nus.edu | 89415266 | A0329496L  |
 
 ## SECTION 4 : VIDEO OF SYSTEM MODELLING & USE CASE DEMO
 
-[![Sudoku AI Solver](http://img.youtube.com/vi/-AiYLUjP6o8/0.jpg)](https://youtu.be/-AiYLUjP6o8 "Sudoku AI Solver")
-
-Note: It is not mandatory for every project member to appear in video presentation; Presentation by one project member is acceptable. 
-More reference video presentations [here](https://telescopeuser.wordpress.com/2018/03/31/master-of-technology-solution-know-how-video-index-2/ "video presentations")
+![video_cover](assets/video_cover.png)
 
 ---
 
@@ -53,30 +101,16 @@ More reference video presentations [here](https://telescopeuser.wordpress.com/20
 
 `Refer to appendix <Installation & User Guide> in project report at Github Folder: ProjectReport`
 
-### [ 1 ] To run the system using iss-vm
+<p style="display: flex; gap: 10px; justify-content: center;">
+  <img src="assets/demo_card.gif" alt="demo_map" style="width:45%;" />
+  <img src="assets/demo_map.gif" alt="demo_card" style="width:45%;" />
+</p>
 
-> download pre-built virtual machine from http://bit.ly/iss-vm
+<p align="center">
+  <em>Restaurants card display (Left) & Interactive Map (Right) </em>
+</p>
 
-> start iss-vm
 
-> open terminal in iss-vm
-
-> $ git clone https://github.com/telescopeuser/Workshop-Project-Submission-Template.git
-
-> $ source activate iss-env-py2
-
-> (iss-env-py2) $ cd Workshop-Project-Submission-Template/SystemCode/clips
-
-> (iss-env-py2) $ python app.py
-
-> **Go to URL using web browser** http://0.0.0.0:5000 or http://127.0.0.1:5000
-
-### [ 2 ] To run the system in other/local machine:
-### Install additional necessary libraries. This application works in python 2 only.
-
-> $ sudo apt-get install python-clips clips build-essential libssl-dev libffi-dev python-dev python-pip
-
-> $ pip install pyclips flask flask-socketio eventlet simplejson pandas
 
 ---
 ## SECTION 6 : PROJECT REPORT / PAPER
@@ -84,8 +118,8 @@ More reference video presentations [here](https://telescopeuser.wordpress.com/20
 `Refer to project report at Github Folder: ProjectReport`
 
 **Recommended Sections for Project Report / Paper:**
+
 - Executive Summary / Paper Abstract
-- Sponsor Company Introduction (if applicable)
 - Business Problem Background
 - Market Research
 - Project Objectives & Success Measurements
@@ -105,20 +139,3 @@ More reference video presentations [here](https://telescopeuser.wordpress.com/20
 
 `Refer to Github Folder: Miscellaneous`
 
-### HDB_BTO_SURVEY.xlsx
-* Results of survey
-* Insights derived, which were subsequently used in our system
-
----
-
-### <<<<<<<<<<<<<<<<<<<< End of Template >>>>>>>>>>>>>>>>>>>>
-
----
-
-**This [Machine Reasoning (MR)](https://www.iss.nus.edu.sg/executive-education/course/detail/machine-reasoning "Machine Reasoning") course is part of the Analytics and Intelligent Systems and Graduate Certificate in [Intelligent Reasoning Systems (IRS)](https://www.iss.nus.edu.sg/stackable-certificate-programmes/intelligent-systems "Intelligent Reasoning Systems") series offered by [NUS-ISS](https://www.iss.nus.edu.sg "Institute of Systems Science, National University of Singapore").**
-
-**Lecturer: [GU Zhan (Sam)](https://www.iss.nus.edu.sg/about-us/staff/detail/201/GU%20Zhan "GU Zhan (Sam)")**
-
-[![alt text](https://www.iss.nus.edu.sg/images/default-source/About-Us/7.6.1-teaching-staff/sam-website.tmb-.png "Let's check Sam' profile page")](https://www.iss.nus.edu.sg/about-us/staff/detail/201/GU%20Zhan)
-
-**zhan.gu@nus.edu.sg**
