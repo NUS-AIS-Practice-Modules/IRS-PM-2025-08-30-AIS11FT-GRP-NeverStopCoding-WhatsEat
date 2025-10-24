@@ -73,7 +73,9 @@ Amid a shift from static “nearby + rating” lists to context-aware personaliz
 ## SECTION 4 : VIDEO OF SYSTEM MODELLING & USE CASE DEMO
 
 [![video_cover](assets/video_cover.png)](https://www.youtube.com/watch?v=kfHtMgUZ3Eo)
-Video Link On YouTube: https://www.youtube.com/watch?v=kfHtMgUZ3Eo
+
+Video Link (YouTube): *https://www.youtube.com/watch?v=kfHtMgUZ3Eo*
+
 ---
 
 ## SECTION 5 : USER GUIDE
