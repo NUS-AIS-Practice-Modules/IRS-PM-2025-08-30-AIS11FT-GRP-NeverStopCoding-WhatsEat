@@ -8,7 +8,7 @@
 
 
 <p align="center">
-  <em>An intelligent multi-agent system that delivers personalized restaurant recommendations through conversational AI</em>
+  <em>An intelligent multi-agent system that delivers personalized restaurant recommendations by conversational UI</em>
 </p>
 
 ### Tech-Stack
