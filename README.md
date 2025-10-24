@@ -80,25 +80,273 @@ Video Link (YouTube): *https://www.youtube.com/watch?v=kfHtMgUZ3Eo*
 
 ## SECTION 5 : USER GUIDE
 
-`Refer to appendix <Installation & User Guide> in project report at Github Folder: ProjectReport`
+### 5.1 Prerequisites & Installation
+
+#### System Requirements
+- **Browser**: Chrome, Firefox, Safari, or Edge (latest versions)
+- **Internet Connection**: Required for real-time restaurant recommendations
+- **Location Services**: Enable location permissions for current location features
+- **API Keys**: 
+  - OpenAI API key (for LLM-powered recommendations)
+  - Google Maps API key (for maps and place search)
+  - Pinecone API key (for vector similarity search)
+  - Neo4j credentials (for knowledge graph queries)
+
+#### Backend Setup
+1. Navigate to the backend directory:
+   ```bash
+   cd WhatsEat-backend-LangGraph-supervisor-py
+   ```
+
+2. Create a Python virtual environment:
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   ```
+
+3. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. Set up environment variables:
+   ```bash
+   cp .env.example .env
+   # Edit .env and add your API keys:
+   # OPENAI_API_KEY=your_key
+   # GOOGLE_MAPS_API_KEY=your_key
+   # PINECONE_API_KEY=your_key
+   # NEO4J_URI=your_uri
+   # NEO4J_USERNAME=your_username
+   # NEO4J_PASSWORD=your_password
+   ```
+
+5. Start the backend server:
+   ```bash
+   python main.py
+   ```
+   The server will run on `http://localhost:8000`
+
+#### Frontend Setup
+1. Navigate to the frontend directory:
+   ```bash
+   cd What2Eat-frontend-agent-chat-ui
+   ```
+
+2. Install dependencies:
+   ```bash
+   pnpm install
+   ```
+
+3. Create a `.env` file with:
+   ```bash
+   REACT_APP_API_URL=http://localhost:8000
+   REACT_APP_GOOGLE_MAPS_KEY=your_key
+   ```
+
+4. Start the development server:
+   ```bash
+   pnpm start
+   ```
+   The frontend will open at `http://localhost:3000`
+
+---
+
+### 5.2 Getting Started with WhatsEat
+
+#### Step 1: Launch the Application
+- Open your browser and navigate to `http://localhost:3000`
+- Allow location permissions when prompted (optional, but recommended for better recommendations)
+- The home interface will display with a conversational chat panel
+
+#### Step 2: Choose Your Location Method
+WhatsEat offers two flexible ways to find restaurants:
+
+**Option A: Use Current Location**
+- Click the **"Use Current Location"** button
+- Grant browser location access if not already enabled
+- The system will automatically detect your coordinates
+
+**Option B: Specify a Custom Location**
+- Simply input a location you desired along with your request.
+- You can enter a street address, landmark, or area name (e.g., "Marina Bay", "Tanjong Pagar", "Orchard Road")
+- The map will update to show the selected area
 
 <p align="center">
-  <img src="assets/demo_current_location.gif" alt="demo_card" width="350">
-  <img src="assets/demo_specific_location.gif" alt="demo_map" width="350">
+  <img src="assets/demo_current_location.gif" alt="current_location_demo" width="350">
+  <img src="assets/demo_specific_location.gif" alt="specific_location_demo" width="350">
 </p>
 
 <p align="center">
-  <em>Recommend by Current Location (Left) & Specific location (Right) </em>
+  <em>Using Current Location (Left) & Searching by Specific Location (Right)</em>
+</p>
+
+---
+
+### 5.3 Interacting with the Recommendation System
+
+#### Step 3: Describe Your Preferences
+- In the **chat input field**, describe what you're looking for:
+  - *"I want Asian fusion food near the office"*
+  - *"Looking for a quiet café with good WiFi"*
+  - *"Fine dining experience for a special occasion"*
+  - *"Halal restaurants with good reviews"*
+  - *"Budget-friendly hawker centers"*
+
+- You can mention:
+  - **Cuisine types**: Chinese, Italian, Japanese, Thai, etc.
+  - **Dietary preferences**: Vegetarian, vegan, halal, kosher
+  - **Atmosphere**: Casual, fine dining, family-friendly, romantic
+  - **Budget**: Cheap, moderate, expensive
+  - **Special requirements**: WiFi, outdoor seating, parking, delivery
+  - **Ratings/Reviews**: Quality expectations
+
+#### Step 4: System Processing
+The multi-agent system orchestrates four concurrent agents:
+
+1. **Places Agent**: Searches nearby restaurants using Google Maps API
+2. **User Profile Agent**: Builds a profile from your preferences and chat history
+3. **RAG Recommender Agent**: 
+   - Queries Neo4j knowledge graph for restaurant attributes
+   - Performs Pinecone vector similarity search for semantic matching
+   - Ranks candidates using multi-factor scoring
+4. **Summarizer Agent**: Generates AI-powered explanations for each recommendation
+
+#### Step 5: Review Restaurant Recommendations
+The system returns personalized recommendations as **interactive cards** displaying:
+- **Restaurant Name & Cuisine**: Quick identification
+- **Rating & Review Count**: Social proof
+- **Distance & Travel Time**: From your location
+- **Why It Matches**: AI-generated explanation tailored to your request
+- **Address & Contact**: Location details
+- **Action Buttons**:
+  - 🔗 **View Details**: Opens full restaurant profile
+  - ⭐ **Directions**: Launches navigation
+  - 🗺️ **Map**: Showing the street view and distance
+
+<p align="center">
+  <img src="assets/demo_card.gif" alt="restaurant_cards_demo" width="350">
+  <img src="assets/demo_map.gif" alt="map_demo" width="350">
 </p>
 
 <p align="center">
-  <img src="assets/demo_card.gif" alt="demo_card" width="350">
-  <img src="assets/demo_map.gif" alt="demo_map" width="350">
+  <em>Restaurant Cards with AI Explanations (Left) & Interactive Map View (Right)</em>
 </p>
 
-<p align="center">
-  <em>Restaurants Card Display (Left) & Interactive Map (Right) </em>
-</p>
+---
+
+### 5.4 Interactive Map Features
+
+#### Exploring on the Map
+- **Restaurant Pins**: Each marker represents a recommended restaurant
+- **Hover Information**: Shows restaurant name and rating on hover
+- **Click to Select**: Click any marker to highlight and view details in the card panel
+- **Map Controls**:
+  - **Zoom In/Out**: Use mouse wheel or zoom buttons
+  - **Pan**: Drag to explore nearby areas
+  - **Your Location Pin**: Blue dot indicates your current/selected location
+
+#### Route Visualization
+- Click the **"Directions"** button on any card to see:
+  - Optimized route from your location to the restaurant
+  - Estimated travel time and distance
+  - Multiple route options (if available)
+
+---
+
+### 5.5 Advanced Features
+
+#### Refine Your Search
+- **Follow-up Questions**: Continue the conversation to refine recommendations
+  - *"Show me options with outdoor seating"*
+  - *"Any vegetarian options from the previous list?"*
+  - *"What about places closer to me?"*
+
+#### Multi-Criteria Filtering (In-Chat)
+The system understands contextual constraints:
+- Price range: *"under SGD 20 per person"*
+- Distance: *"within 2km"*
+- Ratings: *"above 4 stars"*
+- Opening hours: *"open until 11pm"*
+- Parking: *"with parking available"*
+
+#### Conversation History
+- Chat messages are preserved during your session
+- System learns from your preferences over time
+- Previous selections inform future recommendations
+
+---
+
+### 5.6 Tips for Better Recommendations
+
+1. **Be Specific**: Rather than "I want to eat", try "I'm craving spicy Thai food in a group-friendly environment"
+2. **Mention Context**: Include occasion details - "Quick lunch during work break" vs "Romantic dinner date"
+3. **Use Follow-ups**: Start broad, then refine: Ask general questions first, then request specific cuisines or amenities
+4. **Check Ratings**: Pay attention to review counts and ratings displayed on cards
+5. **Review the Explanation**: Read the AI-generated rationale to understand why a restaurant was recommended
+6. **Trust the Map**: Verify distances and routes on the interactive map before committing
+
+---
+
+### 5.7 Troubleshooting
+
+| Issue | Solution |
+|-------|----------|
+| **Location not detected** | Enable location permissions in browser settings → Privacy & Security |
+| **No results appearing** | Try broadening your criteria or checking internet connection |
+| **Map not loading** | Verify Google Maps API key is correctly configured in `.env` |
+| **Slow recommendations** | Clear browser cache or wait for backend services (Neo4j, Pinecone) to stabilize |
+| **Chat not responding** | Check backend server is running on `localhost:8000` and OpenAI API key is valid |
+| **Restaurant details missing** | Indicates data gap in knowledge graph; try different search criteria |
+
+---
+
+### 5.8 System Architecture Overview (For Reference)
+
+The WhatsEat system uses a **LangGraph Supervisor** pattern:
+
+```
+User Input
+    ↓
+Supervisor Agent
+    ├─→ Places Agent (parallel) → Google Maps API
+    ├─→ User Profile Agent (parallel) → Preference Analysis
+    ├─→ RAG Recommender Agent → Neo4j + Pinecone
+    └─→ Summarizer Agent → AI Explanation
+    ↓
+Frontend Rendering (React + TypeScript)
+```
+
+This design ensures:
+- ✅ Parallel evidence gathering for faster responses
+- ✅ Explainable recommendations with rationale
+- ✅ Knowledge graph + vector search fusion for accuracy
+- ✅ Idempotent operations with automatic retries
+
+---
+
+### 5.9 Example Use Cases
+
+#### Use Case 1: Quick Weekday Lunch
+```
+User: "I need lunch within 10 minutes of my office in CBD, budget friendly"
+System Output: 3-5 hawker centers and fast-casual restaurants within walking distance
+Explanation: "These spots offer quick service, affordable pricing, and are within your time constraint"
+```
+
+#### Use Case 2: Special Occasion Dinner
+```
+User: "Fine dining Japanese experience for anniversary, romantic ambiance, around SGD 100 per person"
+System Output: Premium omakase bars and upscale Japanese restaurants
+Explanation: "Selected for authentic cuisine, intimate settings, and alignment with your budget"
+```
+
+#### Use Case 3: Family Outing
+```
+User: "Family-friendly restaurant with kids menu, good reviews, parking available"
+System Output: Casual dining chains and food courts with ample parking
+Explanation: "These venues cater to families with diverse menu options and convenient facilities"
+```
 
 
 
