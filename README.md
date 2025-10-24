@@ -3,60 +3,39 @@
 **[ Naming Convention ]** IRS-PM-2025-08-30-AIS11FT-GRP-NeverStopCoding-WhatsEat
 
 ## SECTION 1 : PROJECT TITLE
-## WhatsEat - Multi-agent Powered Restaurant Recommendation Assistant
+### WhatsEat - Multi-agent Powered Restaurant Recommendation Assistant
+![home](assets/home.png)
 
-An intelligent multi-agent system that delivers personalized restaurant recommendations through conversational AI
+
+<p align="center">
+  <em>An intelligent multi-agent system that delivers personalized restaurant recommendations through conversational AI</em>
+</p>
 
 ### Tech-Stack
-
-<p align="left" style="display:flex; gap:20px; flex-wrap:wrap; align-items:center;">
-  <a href="https://reactjs.org/" target="_blank">
-    <img src="assets/icons/react.svg" alt="React" width="40" height="40">
-  </a>
-  <a href="https://www.typescriptlang.org/" target="_blank">
-    <img src="assets/icons/typescript.svg" alt="TypeScript" width="40" height="40">
-  </a>
-</p>
 
 <p align="left">
   <em>Frontend </em>
 </p>
-
-<p align="left" style="display:flex;gap:20px;flex-wrap:wrap;align-items:center;">
-  <a href="https://openai.com/" target="_blank">
-    <img src="assets/icons/openai.svg" alt="OpenAI" width="40" height="40">
-  </a>
-  <a href="https://www.langgraph.com/" target="_blank">
-    <img src="assets/icons/langgraph.svg" alt="LangGraph" width="40" height="40">
-  </a>
-  <a href="https://www.langsmith.com/" target="_blank">
-    <img src="assets/icons/langsmith.svg" alt="LangSmith" width="40" height="40">
-  </a>
-  <a href="https://www.langchain.com/" target="_blank">
-    <img src="assets/icons/langchain.svg" alt="LangChain" width="40" height="40">
-  </a>
-  <a href="https://neo4j.com/" target="_blank">
-    <img src="assets/icons/neo4j.svg" alt="Neo4j" width="40" height="40">
-  </a>
-  <a href="https://pinecone.io/" target="_blank">
-    <img src="assets/icons/pinecone.svg" alt="Pinecone" width="40" height="40">
-  </a>
-  <a href="https://www.python.org/" target="_blank">
-    <img src="assets/icons/python.svg" alt="Python" width="40" height="40">
-  </a>
-  <a href="https://maps.google.com/" target="_blank">
-    <img src="assets/icons/map.svg" alt="Google Map" width="40" height="40">
-  </a>
-  <a href="https://www.youtube.com/" target="_blank">
-    <img src="assets/icons/youtube.svg" alt="YouTube" width="40" height="40">
-  </a>
+<p align="left" style="display:flex; gap:20px; flex-wrap:wrap; align-items:center;">
+  <a href="https://reactjs.org/" target="_blank"><img src="assets/icons/react.svg" alt="React" width="40" height="40"></a>
+  <a href="https://www.typescriptlang.org/" target="_blank"><img src="assets/icons/typescript.svg" alt="TypeScript" width="40" height="40"></a>
 </p>
+
 
 <p align="left">
   <em>Backend</em>
 </p>
-
-![home](assets/home.png)
+<p align="left" style="display:flex;gap:20px;flex-wrap:wrap;align-items:center;">
+  <a href="https://openai.com/" target="_blank"><img src="assets/icons/openai.svg" alt="OpenAI" width="40" height="40"></a>
+  <a href="https://www.langgraph.com/" target="_blank"><img src="assets/icons/langgraph.svg" alt="LangGraph" width="40" height="40"></a>
+  <a href="https://www.langsmith.com/" target="_blank"><img src="assets/icons/langsmith.svg" alt="LangSmith" width="40" height="40"></a>
+  <a href="https://www.langchain.com/" target="_blank"><img src="assets/icons/langchain.svg" alt="LangChain" width="40" height="40"></a>
+  <a href="https://neo4j.com/" target="_blank"><img src="assets/icons/neo4j.svg" alt="Neo4j" width="40" height="40"></a>
+  <a href="https://pinecone.io/" target="_blank"><img src="assets/icons/pinecone.svg" alt="Pinecone" width="40" height="40"></a>
+  <a href="https://www.python.org/" target="_blank"><img src="assets/icons/python.svg" alt="Python" width="40" height="40"></a>
+  <a href="https://maps.google.com/" target="_blank"><img src="assets/icons/map.svg" alt="Google Map" width="40" height="40"></a>
+  <a href="https://www.youtube.com/" target="_blank"><img src="assets/icons/youtube.svg" alt="YouTube" width="40" height="40"></a>
+</p>
 
 ---
 
@@ -93,8 +72,8 @@ Amid a shift from static “nearby + rating” lists to context-aware personaliz
 
 ## SECTION 4 : VIDEO OF SYSTEM MODELLING & USE CASE DEMO
 
-![video_cover](assets/video_cover.png)
-
+[![video_cover](assets/video_cover.png)](https://www.youtube.com/watch?v=kfHtMgUZ3Eo)
+Video Link On YouTube: https://www.youtube.com/watch?v=kfHtMgUZ3Eo
 ---
 
 ## SECTION 5 : USER GUIDE
