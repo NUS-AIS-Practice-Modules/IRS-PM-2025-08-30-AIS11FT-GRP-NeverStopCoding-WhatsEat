@@ -93,6 +93,10 @@ Video Link (YouTube): *https://www.youtube.com/watch?v=kfHtMgUZ3Eo*
   - Neo4j credentials (for knowledge graph queries)
 
 #### Backend Setup
+0. Clone the repository and its submodules:
+   ```bash
+   git clone --recurse-submodules https://github.com/NUS-AIS-Practice-Modules/IRS-PM-2025-08-30-IS02PT-GRP-NeverStopCoding-WhatsEat.git
+   ```
 1. Navigate to the backend directory:
    ```bash
    cd WhatsEat-backend-LangGraph-supervisor-py
@@ -106,7 +110,8 @@ Video Link (YouTube): *https://www.youtube.com/watch?v=kfHtMgUZ3Eo*
 
 3. Install dependencies:
    ```bash
-   pip install -r requirements.txt
+   pip install uv  # optional, for dependency management
+   uv sync          # or: pip install -r requirements.txt
    ```
 
 4. Set up environment variables:
@@ -123,9 +128,9 @@ Video Link (YouTube): *https://www.youtube.com/watch?v=kfHtMgUZ3Eo*
 
 5. Start the backend server:
    ```bash
-   python main.py
+   uv run langgraph dev
    ```
-   The server will run on `http://localhost:8000`
+   The server will run on `http://localhost:2024`
 
 #### Frontend Setup
 1. Navigate to the frontend directory:
@@ -140,7 +145,8 @@ Video Link (YouTube): *https://www.youtube.com/watch?v=kfHtMgUZ3Eo*
 
 3. Create a `.env` file with:
    ```bash
-   REACT_APP_API_URL=http://localhost:8000
+   REACT_APP_LANGGRAPH_API_URL=http://localhost:2024
+   REACT_APP_LANGGRAPH_GRAPH_ID=agent
    REACT_APP_GOOGLE_MAPS_KEY=your_key
    ```
 
@@ -230,7 +236,7 @@ The system returns personalized recommendations as **interactive cards** display
 </p>
 
 <p align="center">
-  <em>Restaurant Cards with AI Explanations (Left) & Interactive Map View (Right)</em>
+  <em>Restaurant Cards with Agent Explanations (Left) & Interactive Map View (Right)</em>
 </p>
 
 ---
@@ -290,14 +296,14 @@ The system understands contextual constraints:
 
 ### 5.7 Troubleshooting
 
-| Issue | Solution |
-|-------|----------|
-| **Location not detected** | Enable location permissions in browser settings → Privacy & Security |
-| **No results appearing** | Try broadening your criteria or checking internet connection |
-| **Map not loading** | Verify Google Maps API key is correctly configured in `.env` |
+| Issue | Solution                                                                        |
+|-------|---------------------------------------------------------------------------------|
+| **Location not detected** | Enable location permissions in browser settings → Privacy & Security            |
+| **No results appearing** | Try broadening your criteria or checking internet connection                    |
+| **Map not loading** | Verify Google Maps API key is correctly configured in `.env`                    |
 | **Slow recommendations** | Clear browser cache or wait for backend services (Neo4j, Pinecone) to stabilize |
-| **Chat not responding** | Check backend server is running on `localhost:8000` and OpenAI API key is valid |
-| **Restaurant details missing** | Indicates data gap in knowledge graph; try different search criteria |
+| **Chat not responding** | Check backend server is running on `localhost:2024` and OpenAI API key is valid |
+| **Restaurant details missing** | Indicates data gap in knowledge graph; try different search criteria            |
 
 ---
 
