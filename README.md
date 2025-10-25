@@ -95,7 +95,8 @@ Video Link (YouTube): *https://www.youtube.com/watch?v=kfHtMgUZ3Eo*
 #### Backend Setup
 0. Clone the repository and its submodules:
    ```bash
-   git clone --recurse-submodules https://github.com/NUS-AIS-Practice-Modules/IRS-PM-2025-08-30-IS02PT-GRP-NeverStopCoding-WhatsEat.git
+   git clone --recurse-submodules https://github.com/NUS-AIS-Practice-Modules/IRS-PM-2025-08-30-AIS11FT-GRP-NeverStopCoding-WhatsEat.git
+   cd IRS-PM-2025-08-30-AIS11FT-GRP-NeverStopCoding-WhatsEat/
    ```
 1. Navigate to the backend directory:
    ```bash
@@ -104,14 +105,18 @@ Video Link (YouTube): *https://www.youtube.com/watch?v=kfHtMgUZ3Eo*
 
 2. Create a Python virtual environment:
    ```bash
-   python -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   # On MacOS with Homebrew
+   brew install uv #On Linux: curl -LsSf https://astral.sh/uv/install.sh | sh  On Windows: winget install uv
+   # create virtual environment
+   uv venv
+   # activate the virtual environment
+   source .venv/bin/activate  # On Windows: venv\Scripts\activate
    ```
 
 3. Install dependencies:
    ```bash
-   pip install uv  # optional, for dependency management
-   uv sync          # or: pip install -r requirements.txt
+   # installs dependencies from pyproject.toml
+   uv sync          
    ```
 
 4. Set up environment variables:
@@ -128,13 +133,15 @@ Video Link (YouTube): *https://www.youtube.com/watch?v=kfHtMgUZ3Eo*
 
 5. Start the backend server:
    ```bash
-   uv run langgraph dev
+   # starts LangGraph server
+   uv run langgraph dev 
    ```
    The server will run on `http://localhost:2024`
 
 #### Frontend Setup
 1. Navigate to the frontend directory:
    ```bash
+   cd .. # Go back to the root directory
    cd What2Eat-frontend-agent-chat-ui
    ```
 
