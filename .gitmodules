@@ -1,7 +1,6 @@
-
-[submodule "WhatsEat-backend-LangGraph-supervisor-py"]
-	path = WhatsEat-backend-LangGraph-supervisor-py
-	url = git@github.com:NUS-AIS-Practice-Modules/WhatsEat-backend-LangGraph-supervisor-py.git
 [submodule "WhatsEat-frontend-agent-chat-ui"]
 	path = WhatsEat-frontend-agent-chat-ui
 	url = git@github.com:NUS-AIS-Practice-Modules/WhatsEat-frontend-agent-chat-ui.git
+[submodule "WhatsEat-backend-LangGraph-supervisor-py"]
+	path = WhatsEat-backend-LangGraph-supervisor-py
+	url = git@github.com:NUS-AIS-Practice-Modules/WhatsEat-backend-LangGraph-supervisor-py.git
